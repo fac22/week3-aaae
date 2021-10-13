@@ -21,11 +21,12 @@ function post(request, response) {
   const { email, password, name } = request.body;
   auth
     .createUser(email, password, name)
-    .then((user) =>
-      response.send(
-        `<h1>email: ${user.email}, id: ${user.id}, name: ${user.name}</h1>`
-      )
-    )
+    .then(auth.saveUserSession)
+    .then((sid) => {
+      response.cookie('sid', sid, auth.COOKIE_OPTIONS);
+      console.log('created and logged in!');
+      response.redirect('/');
+    })
     .catch(() => {
       response.send('<h1>Something went wrong creating a user</h1>');
     });

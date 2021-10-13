@@ -15,11 +15,18 @@ function createUser(email, hash, name) {
 
 function getUser(email) {
   const SELECT_USER = /*sql*/ `
-    SELECT id, email, password, name, FROM users WHERE email=$1
+    SELECT id, email, password, name FROM users WHERE email=$1
     `;
   return db.query(SELECT_USER, [email]).then((result) => result.rows[0]);
 }
 
+function createSession(sid, data) {
+  const INSERT_SESSION = /*sql*/ `
+  INSERT INTO sessions (sid, data) VALUES ($1, $2)
+  RETURNING sid`;
+  return db
+    .query(INSERT_SESSION, [sid, data])
+    .then((result) => result.rows[0].sid);
+}
 
-
-module.exports = { createUser, getUser };
+module.exports = { createUser, getUser, createSession };
