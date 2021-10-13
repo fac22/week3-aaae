@@ -18,6 +18,11 @@ function verifyUser(email, password) {
     });
 }
 
+function saveUserSession(user) {
+  const sid = crypto.randomBytes(18).toString('base64');
+  return model.createSession(sid, { user });
+}
+
 function createUser(email, password, name) {
   return bcrypt
     .hash(password, 10)
