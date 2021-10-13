@@ -10,6 +10,5 @@ psql -q -c "CREATE DATABASE post_it WITH OWNER post_it_user"
 echo "Created Postgres database 'post_it'"
 
 DB_URL="postgres://post_it_user:pass123@localhost:5432/post_it"
-echo "DATABASE_URL='postgres://post_it_user:pass123@localhost:5432/post_it'" > .env
-echo "COOKIE_SECRET='thisisaridiculouscookiesecretandshouldnotbeusedinproduction'" > .env
+echo "DATABASE_URL='postgres://post_it_user:pass123@localhost:5432/post_it'\nCOOKIE_SECRET='thisisaridiculouscookiesecretandshouldnotbeusedinproduction'" > .env
 echo "Created .env containing DATABASE_URL & COOKIE_SECRET"
