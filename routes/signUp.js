@@ -1,8 +1,6 @@
 'use strict';
 
 const auth = require('../auth.js');
-// temp import of model, remove when using auth.js
-const model = require('../database/model');
 
 function get(request, response) {
   response.send(/*html*/ `
@@ -21,7 +19,7 @@ function get(request, response) {
 
 function post(request, response) {
   const { email, password, name } = request.body;
-  model
+  auth
     .createUser(email, password, name)
     .then((user) =>
       response.send(
