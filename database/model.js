@@ -15,7 +15,7 @@ function createUser(email, hash, name) {
 
 function getUser(email) {
   const SELECT_USER = /*sql*/ `
-    SELECT id, email, password, name, FROM users WHERE email=$1
+    SELECT id, email, password, name FROM users WHERE email=$1
     `;
   return db.query(SELECT_USER, [email]).then((result) => result.rows[0]);
 }
