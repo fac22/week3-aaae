@@ -17,6 +17,17 @@ function get(request, response) {
   response.send(html);
 }
 
-function post(request, response) {}
+function post(request, response) {
+  const { email, password } = request.body;
+
+  auth
+    .verifyUser(email, password)
+    .then(auth.saveUserSession)
+    .then((sid) => {
+      response.cookie('sid', sid, auth.COOKIE_OPTIONS);
+      response.redirect('/');
+    })
+    .catch(() => response.send(/*html*/ `<h1>User not found!</h1>`));
+}
 
 module.exports = { get, post };
