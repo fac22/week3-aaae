@@ -1,0 +1,15 @@
+#! /bin/sh
+
+# stop script when an error occurs
+set -e
+
+psql -q -c "CREATE USER post_it_user SUPERUSER PASSWORD 'pass123'"
+echo "Created Postgres user 'post_it_user'"
+
+psql -q -c "CREATE DATABASE post_it WITH OWNER post_it_user"
+echo "Created Postgres database 'post_it'"
+
+DB_URL="postgres://post_it_user:pass123@localhost:5432/post_it"
+echo "DATABASE_URL='postgres://post_it_user:pass123@localhost:5432/post_it'" > .env
+echo "COOKIE_SECRET='thisisaridiculouscookiesecretandshouldnotbeusedinproduction'" > .env
+echo "Created .env containing DATABASE_URL & COOKIE_SECRET"
