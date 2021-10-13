@@ -20,6 +20,13 @@ function getUser(email) {
   return db.query(SELECT_USER, [email]).then((result) => result.rows[0]);
 }
 
+function createSession(sid, data) {
+  const INSERT_SESSION = /*sql*/ `
+  INSERT INTO sessions (sid, data) VALUES ($1, $2)
+  RETURNING sid`;
+  return db
+    .query(INSERT_SESSION, [sid, data])
+    .then((result) => result.rows[0].sid);
+}
 
-
-module.exports = { createUser, getUser };
+module.exports = { createUser, getUser, createSession };

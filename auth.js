@@ -36,4 +36,4 @@ const COOKIE_OPTIONS = {
   signed: true,
 };
 
-module.exports = { verifyUser, createUser, COOKIE_OPTIONS };
+module.exports = { verifyUser, createUser, saveUserSession, COOKIE_OPTIONS };
