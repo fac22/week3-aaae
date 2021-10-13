@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const model = require('./database/model');
 
 function verifyUser(email, password) {
-  model
+  return model
     .getUser(email)
     .then((user) => bcrypt.compare(password, user.password))
     .then((match) => {
