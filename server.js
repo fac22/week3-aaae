@@ -29,6 +29,7 @@ server.get('/', (request, response) => {
 
 // page for displaying all the posts
 server.get('/posts', posts.get);
+server.post('/posts', posts.post);
 
 // setting the routes for login - get and set
 // implementation of the functions is in the ./routes/login.js
