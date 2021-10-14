@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500&family=Lato&family=Oswald&family=Raleway:wght@300;400;500&display=swap');
+
+/* ----------------- FONT FAMILIES
+font-family: 'Inconsolata', monospace;
+font-family: 'Lato', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Raleway', sans-serif; */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* white-space: pre; */
+  font-family: 'Inconsolata', monospace;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  width: 90px;
+  height: 90px;
+}
+
+
+
+
+
+/* ----------------------------------------------------------------- PRIMITIVES ------------------------------------------------------------- */
+/* -----------------------------------------------------------------            ------------------------------------------------------------- */
+/* -----------------------------------------------------------------            ------------------------------------------------------------- */
+
+/* ------------------------------------------------ CENTER / WIDTH  */
+.center {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.width-sm {
+  max-width: 20rem;
+}
+
+.width-md {
+  max-width: 50rem;
+}
+
+.width-lg {
+  max-width: 60rem;
+}
+
+/* ------------------------------------------------ MARGIN STACKS  */
+.stack-sm > * + * {
+  margin-top: 0.5rem;
+}
+
+.stack-md > * + * {
+  margin-top: 1rem;
+}
+
+.stack-lg > * + * {
+  margin-top: 2rem;
+}
+
+.stack-xl > * + * {
+  margin-top: 4rem;
+}
+
+/* ------------------------------------------------ HORIZONTAL ALIGNMENT  */
+.row {
+  display: flex;
+  gap: 1rem;
+  /* flex-wrap: wrap; */
+  align-items: center;
+}
+
+.gap-lg {
+  gap: 2rem;
+}
+
+.gap-xl {
+  gap: 4rem;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
