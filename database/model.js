@@ -29,4 +29,11 @@ function createSession(sid, data) {
     .then((result) => result.rows[0].sid);
 }
 
-module.exports = { createUser, getUser, createSession };
+function getPosts() {
+  const SELECT_POST = /*sql*/ `
+    SELECT text_content FROM posts
+    `;
+  return db.query(SELECT_POST).then((result) => result.rows);
+}
+
+module.exports = { createUser, getUser, createSession, getPosts };

@@ -4,6 +4,7 @@ const express = require('express');
 
 const login = require('./routes/login');
 const signUp = require('./routes/signUp.js');
+const posts = require('./routes/posts.js');
 const db = require('./database/connection.js');
 
 const server = express();
@@ -22,6 +23,9 @@ server.get('/', (request, response) => {
   });
   response.send('<h1>Hello</h1>');
 });
+
+// page for displaying all the posts
+server.get('/posts', posts.get);
 
 // setting the routes for login - get and set
 // implementation of the functions is in the ./routes/login.js
