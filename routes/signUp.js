@@ -14,6 +14,8 @@ function get(request, response) {
       <input type="password" id="password" name="password">
       <button>Sign up</button>
     </form>
+
+    <a href='/'>Return Home</a>
   `);
 }
 

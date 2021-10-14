@@ -40,6 +40,10 @@ server.post('/write-post', writePost.post);
 
 server.post('/log-out', logout.post);
 
+// Static handler
+const staticHandler = express.static('public');
+server.use(staticHandler);
+
 const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));

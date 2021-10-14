@@ -5,15 +5,14 @@ const layout = require('../layout');
 function get(request, response) {
   const html = /*html*/ `
     <header>
-        <div class="center row">
-        <img src="images/post-it.png" alt="post-it" />
-        <h1>Post-It Board</h1>
-        </div>
+        <h1 class='center'>Post-It Board</h1>
     </header>
     <main>
         <section>
-            <a href="/sign-up">Sign-Up</a>
-            <a href="/log-in">Log-in</a>
+            <div class='center links'>
+                <a href="/sign-up">Sign-Up</a>
+                <a href="/log-in">Log-in</a>
+            </div>    
         </section>
     </main>
 `;
