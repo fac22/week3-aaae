@@ -8,6 +8,7 @@ function createUser(email, hash, name) {
       INSERT INTO users (email, password, name) VALUES ($1, $2, $3)
       RETURNING id, email, name
     `;
+  console.log(INSERT_USER);
 
   return db.query(INSERT_USER, [email, hash, name]).then((result) => {
     console.log('created this user ', result.rows[0]);
