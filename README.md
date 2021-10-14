@@ -7,7 +7,6 @@ An app hosting your post it notes! 📌
 ### Instructions for how to run locally
 
 1. Clone the repo
-   ![Git clone screenshot](gitclone.png)
 2. cd into the folder and run `NPM install`
 3. Run the scripts > create_db and populate_db to initialise the local copy of the database
 
