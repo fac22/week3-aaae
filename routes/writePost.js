@@ -9,14 +9,10 @@ function get(request, response) {
     model.getSession(sid).then((session) => {
       response.send(/*html*/ `
       <h1>Penny for your thoughts, ${session.user.name}?</h1>
-      <form action="sign-up" method="POST">
-        <label for="name">Name</label>
-        <input type="name" id="name" name="name">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
-        <button>Sign up</button>
+      <form action="write-post" method="POST">
+        <label for="post">Your post</label>
+        <input type="text" id="post" name="post">
+        <button>Post post 😎</button>
       </form>
     `);
     });
