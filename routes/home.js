@@ -9,9 +9,9 @@ function get(request, response) {
     </header>
     <main>
         <section>
-            <div class='center links'>
-                <a href="/sign-up">Sign-Up</a>
-                <a href="/log-in">Log-in</a>
+            <div class='center width-sm row '>
+                <a href="/sign-up" id='signup'>Sign-Up</a>
+                <a href="/log-in" id='login'>Log-in</a>
             </div>    
         </section>
     </main>
