@@ -34,18 +34,6 @@ function post(request, response) {
   } else {
     response.redirect('/');
   }
-
-  auth
-    .createUser(email, password, name)
-    .then(auth.saveUserSession)
-    .then((sid) => {
-      response.cookie('sid', sid, auth.COOKIE_OPTIONS);
-      console.log('created and logged in!');
-      response.redirect('/');
-    })
-    .catch(() => {
-      response.send('<h1>Something went wrong creating a user</h1>');
-    });
 }
 
 module.exports = { get, post };
