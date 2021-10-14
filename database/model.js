@@ -29,6 +29,7 @@ function createSession(sid, data) {
     .then((result) => result.rows[0].sid);
 }
 
+
 function getSession(sid) {
   const SELECT_SESSION = /*sql*/ `SELECT data FROM sessions WHERE sid=$1`;
   return db.query(SELECT_SESSION, [sid]).then((result) => {
@@ -42,4 +43,12 @@ function createPost(id, textContent) {
   return db.query(INSERT_POST, [id, textContent]);
 }
 
-module.exports = { createUser, getUser, createSession, getSession, createPost };
+function getPosts() {
+  const SELECT_POST = /*sql*/ `
+    SELECT text_content FROM posts
+    `;
+  return db.query(SELECT_POST).then((result) => result.rows);
+}
+
+module.exports = { createUser, getUser, createSession, getSession, createPost, getPosts };
+
