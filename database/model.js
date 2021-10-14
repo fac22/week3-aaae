@@ -29,4 +29,12 @@ function createSession(sid, data) {
     .then((result) => result.rows[0].sid);
 }
 
-module.exports = { createUser, getUser, createSession };
+function getSession(sid) {
+  const SELECT_SESSION = /*sql*/ `SELECT data FROM sessions WHERE sid=$1`;
+  return db.query(SELECT_SESSION, [sid]).then((result) => {
+    const singleResult = result.rows[0];
+    return singleResult && singleResult.data;
+  });
+}
+
+module.exports = { createUser, getUser, createSession, getSession };
