@@ -2,7 +2,7 @@
 
 const model = require('../database/model');
 
-async function get(request, response) {
+function get(request, response) {
   model
     .getPosts()
     .then((posts) => {
