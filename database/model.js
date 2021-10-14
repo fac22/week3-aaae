@@ -29,7 +29,6 @@ function createSession(sid, data) {
     .then((result) => result.rows[0].sid);
 }
 
-
 function getSession(sid) {
   const SELECT_SESSION = /*sql*/ `SELECT data FROM sessions WHERE sid=$1`;
   return db.query(SELECT_SESSION, [sid]).then((result) => {
@@ -50,5 +49,17 @@ function getPosts() {
   return db.query(SELECT_POST).then((result) => result.rows);
 }
 
-module.exports = { createUser, getUser, createSession, getSession, createPost, getPosts };
+function deleteSession(sid) {
+  const DELETE_SESSION = /*sql*/ `DELETE FROM sessions WHERE sid=$1`;
+  return db.query(DELETE_SESSION, [sid]);
+}
 
+module.exports = {
+  createUser,
+  getUser,
+  createSession,
+  getSession,
+  createPost,
+  getPosts,
+  deleteSession,
+};
