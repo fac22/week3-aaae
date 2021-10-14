@@ -1,6 +1,5 @@
 'use strict';
 
-const auth = require('../auth.js');
 const model = require('../database/model.js');
 
 function get(request, response) {
