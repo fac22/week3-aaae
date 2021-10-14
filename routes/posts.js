@@ -9,7 +9,14 @@ function get(request, response) {
       .getPosts()
       .then((posts) => {
         const postList = posts
-          .map((post) => `<li>${post.text_content}</li>`)
+          .map((post) => {
+            console.log(post);
+            return /*html*/ `<li>${post.text_content}</li>
+        <form action="/posts" method="POST"><button name="id" value="${post.id}" aria-label="Delete post">
+          Delete
+        </button></form>
+     `;
+          })
           .join('');
         return postList;
       })
@@ -23,4 +30,19 @@ function get(request, response) {
   }
 }
 
-module.exports = { get };
+function post(request, response) {
+  const postId = request.body.id;
+  console.log(request.body);
+  const sid = request.signedCookies.sid;
+
+  if (sid) {
+    model
+      .getSession(sid)
+      .then((session) => model.deletePost(postId, session.user.id))
+      .then(() => response.redirect('/posts'));
+  } else {
+    response.redirect('/');
+  }
+}
+
+module.exports = { get, post };
