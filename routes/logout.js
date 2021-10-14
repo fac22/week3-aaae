@@ -1,6 +1,7 @@
 'use strict';
 
 const model = require('../database/model');
+const layout = require('../layout');
 
 function post(request, response) {
   const sid = request.signedCookies.sid;
@@ -9,7 +10,10 @@ function post(request, response) {
     model.deleteSession(sid).then(() => {
       response.clearCookie('sid');
       response.send(
-        '<h1>You are now logged out! <a href="/">Log back in</a></h1>'
+        layout(
+          'log',
+          '<h1>You are now logged out! <a href="/">Log back in</a></h1>'
+        )
       );
     });
   } else {
