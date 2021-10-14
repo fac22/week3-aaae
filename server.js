@@ -4,7 +4,9 @@ const express = require('express');
 
 const login = require('./routes/login');
 const signUp = require('./routes/signUp.js');
+const writePost = require('./routes/writePost.js');
 const posts = require('./routes/posts.js');
+
 const db = require('./database/connection.js');
 
 const server = express();
@@ -34,6 +36,9 @@ server.post('/log-in', login.post);
 
 server.get('/sign-up', signUp.get);
 server.post('/sign-up', signUp.post);
+
+server.get('/write-post', writePost.get);
+server.post('/write-post', writePost.post);
 
 const PORT = process.env.PORT || 3000;
 

@@ -29,6 +29,20 @@ function createSession(sid, data) {
     .then((result) => result.rows[0].sid);
 }
 
+
+function getSession(sid) {
+  const SELECT_SESSION = /*sql*/ `SELECT data FROM sessions WHERE sid=$1`;
+  return db.query(SELECT_SESSION, [sid]).then((result) => {
+    const singleResult = result.rows[0];
+    return singleResult && singleResult.data;
+  });
+}
+
+function createPost(id, textContent) {
+  const INSERT_POST = /*sql*/ `INSERT INTO posts (user_id, text_content, created_at) VALUES ($1, $2, (SELECT CURRENT_TIMESTAMP))`;
+  return db.query(INSERT_POST, [id, textContent]);
+}
+
 function getPosts() {
   const SELECT_POST = /*sql*/ `
     SELECT text_content FROM posts
@@ -36,4 +50,5 @@ function getPosts() {
   return db.query(SELECT_POST).then((result) => result.rows);
 }
 
-module.exports = { createUser, getUser, createSession, getPosts };
+module.exports = { createUser, getUser, createSession, getSession, createPost, getPosts };
+
