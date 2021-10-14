@@ -21,7 +21,7 @@ function get(request, response) {
         return postList;
       })
       .then((postList) => {
-        const html = `<ul>${postList}</ul>`;
+        const html = /*html*/ `<ul>${postList}</ul><form action="/log-out" method="post"><button>logout</button></form>`;
         return html;
       })
       .then((html) => response.send(html));

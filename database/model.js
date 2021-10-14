@@ -49,16 +49,14 @@ function getPosts() {
   return db.query(SELECT_POST).then((result) => result.rows);
 }
 
-// function getPostById() {
-//   const SELECT_POST_ID = /*sql*/ `
-//     SELECT user_id FROM posts WHERE id=$1
-//     `;
-//   return db.query(SELECT_POST_ID).then((result) => result.rows);
-// }
-
 function deletePost(postId, user_id) {
   const DELETE_POST = /*sql*/ `DELETE FROM posts WHERE id=$1 AND user_id=$2`;
   return db.query(DELETE_POST, [parseInt(postId, 10), user_id]);
+
+function deleteSession(sid) {
+  const DELETE_SESSION = /*sql*/ `DELETE FROM sessions WHERE sid=$1`;
+  return db.query(DELETE_SESSION, [sid]);
+
 }
 
 module.exports = {
@@ -69,4 +67,5 @@ module.exports = {
   createPost,
   getPosts,
   deletePost,
+  deleteSession
 };

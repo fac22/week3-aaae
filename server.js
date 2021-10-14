@@ -6,6 +6,7 @@ const login = require('./routes/login');
 const signUp = require('./routes/signUp.js');
 const writePost = require('./routes/writePost.js');
 const posts = require('./routes/posts.js');
+const logout = require('./routes/logout.js');
 
 const db = require('./database/connection.js');
 
@@ -40,6 +41,8 @@ server.post('/sign-up', signUp.post);
 
 server.get('/write-post', writePost.get);
 server.post('/write-post', writePost.post);
+
+server.post('/log-out', logout.post);
 
 const PORT = process.env.PORT || 3000;
 
