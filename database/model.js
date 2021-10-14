@@ -52,11 +52,11 @@ function getPosts() {
 function deletePost(postId, user_id) {
   const DELETE_POST = /*sql*/ `DELETE FROM posts WHERE id=$1 AND user_id=$2`;
   return db.query(DELETE_POST, [parseInt(postId, 10), user_id]);
+}
 
 function deleteSession(sid) {
   const DELETE_SESSION = /*sql*/ `DELETE FROM sessions WHERE sid=$1`;
   return db.query(DELETE_SESSION, [sid]);
-
 }
 
 module.exports = {
@@ -67,5 +67,5 @@ module.exports = {
   createPost,
   getPosts,
   deletePost,
-  deleteSession
+  deleteSession,
 };
