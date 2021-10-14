@@ -12,7 +12,7 @@ function get(request, response) {
       <input type="email" id="email" name="email">
       <label for="password">Password</label>
       <input type="password" id="password" name="password">
-      <button>Sign up</button>
+      <button type='submit'>Sign up</button>
     </form>
   `);
 }
@@ -25,7 +25,7 @@ function post(request, response) {
     .then((sid) => {
       response.cookie('sid', sid, auth.COOKIE_OPTIONS);
       console.log('created and logged in!');
-      response.redirect('/');
+      response.redirect('/write-post');
     })
     .catch(() => {
       response.send('<h1>Something went wrong creating a user</h1>');
