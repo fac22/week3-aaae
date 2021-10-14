@@ -37,4 +37,9 @@ function getSession(sid) {
   });
 }
 
-module.exports = { createUser, getUser, createSession, getSession };
+function createPost(id, textContent) {
+  const INSERT_POST = /*sql*/ `INSERT INTO posts (user_id, text_content, created_at) VALUES ($1, $2, (SELECT CURRENT_TIMESTAMP))`;
+  return db.query(INSERT_POST, [id, textContent]);
+}
+
+module.exports = { createUser, getUser, createSession, getSession, createPost };

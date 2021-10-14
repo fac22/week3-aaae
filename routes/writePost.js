@@ -22,7 +22,19 @@ function get(request, response) {
 }
 
 function post(request, response) {
-  const { email, password, name } = request.body;
+  const { post } = request.body;
+
+  const sid = request.signedCookies.sid;
+  if (sid) {
+    model
+      .getSession(sid)
+      .then((session) => model.createPost(session.user.id, post))
+      .then(response.redirect('/posts'))
+      .catch(response.send('<h1>Error creating post</h1>'));
+  } else {
+    response.redirect('/');
+  }
+
   auth
     .createUser(email, password, name)
     .then(auth.saveUserSession)
