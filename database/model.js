@@ -6,7 +6,7 @@ function createUser(email, hash, name) {
   console.log('creating user with ', email, hash, name);
   const INSERT_USER = `
       INSERT INTO users (email, password, name) VALUES ($1, $2, $3)
-      RETURNING id, email, name
+      RETURNING id, email, name;
     `;
   console.log(INSERT_USER);
 
