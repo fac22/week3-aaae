@@ -7,6 +7,7 @@ const signUp = require('./routes/signUp.js');
 const writePost = require('./routes/writePost.js');
 const posts = require('./routes/posts.js');
 const logout = require('./routes/logout.js');
+const home = require('./routes/home.js');
 
 const db = require('./database/connection.js');
 
@@ -20,12 +21,7 @@ server.use(express.urlencoded({ extended: false }));
 
 server.use(cookieParser(process.env.COOKIE_SECRET));
 
-server.get('/', (request, response) => {
-  db.query('SELECT * FROM users').then((result) => {
-    console.log(result);
-  });
-  response.send('<h1>Hello</h1>');
-});
+server.get('/', home.get);
 
 // page for displaying all the posts
 server.get('/posts', posts.get);
@@ -43,6 +39,10 @@ server.get('/write-post', writePost.get);
 server.post('/write-post', writePost.post);
 
 server.post('/log-out', logout.post);
+
+// Static handler
+const staticHandler = express.static('public');
+server.use(staticHandler);
 
 const PORT = process.env.PORT || 3000;
 

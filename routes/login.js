@@ -13,6 +13,7 @@ function get(request, response) {
       <input type="password" id="password" name="password">
       <button type='submit'>Log in</button>
     </form>
+    <a href='/'>Return Home</a>
     `;
   response.send(html);
 }

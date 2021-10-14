@@ -64,3 +64,4 @@ Future improvements 🕰
 - Race conditions causing page to redirect before post was deleted - fixed by refactoring the promise containing the model.deletePost to an arrow function (explicit return)
 
   `model .getSession(sid) .then((session) => model.deletePost(postId, session.user.id)) .then(() => response.redirect('/posts'));`
+
