@@ -11,7 +11,7 @@ function get(request, response) {
       <form action="write-post" method="POST">
         <label for="post">Your post</label>
         <input type="text" id="post" name="post">
-        <button>Post post 😎</button>
+        <button type='submit'>Post post 😎</button>
       </form>
     `);
     });

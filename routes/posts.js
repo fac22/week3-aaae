@@ -12,7 +12,7 @@ function get(request, response) {
           .map((post) => {
             console.log(post);
             return /*html*/ `<li>${post.text_content}</li>
-        <form action="/posts" method="POST"><button name="id" value="${post.id}" aria-label="Delete post">
+        <form action="/posts" method="POST"><button name="id" value="${post.id}" aria-label="Delete post${post.user_id}">
           Delete
         </button></form>
      `;
