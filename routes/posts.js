@@ -9,10 +9,11 @@ function get(request, response) {
       .getPosts()
       .then((posts) => {
         const postList = posts
-          .map((post) => {
-            console.log(post);
+          .map((post, index, posts) => {
             return /*html*/ `<li>${post.text_content}</li>
-        <form action="/posts" method="POST"><button name="id" value="${post.id}" aria-label="Delete post${post.user_id}">
+        <form action="/posts" method="POST"><button name="id" value="${
+          post.id
+        }" aria-label="Delete post ${index + 1} of ${posts.length}">
           Delete
         </button></form>
      `;
