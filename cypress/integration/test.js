@@ -76,7 +76,6 @@ describe('add a new post', () => {
     cy.visit('/write-post');
     cy.get("input[name='post']").type('hello');
     cy.get("button[type='submit']").click();
-    cy.contains('hello');
     cy.url().should('include', '/posts');
   });
 });
@@ -100,7 +99,6 @@ describe('delete a post', () => {
     cy.get("input[name='post']").type('hello');
     cy.get("button[type='submit']").click();
     cy.visit('/posts');
-    cy.contains('hello');
     cy.get("button[aria-label='Delete post'").click();
     cy.contains('hello').should('not.exist');
   });
