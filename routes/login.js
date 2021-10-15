@@ -2,20 +2,29 @@
 
 const model = require('../database/model');
 const auth = require('../auth.js');
+const layout = require('../layout');
 
 function get(request, response) {
   const html = /*html*/ `
-    <h1>Log in</h1>
-    <form action="log-in" method="POST">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password">
+    <h2 class='center'>Log in</h2>
+    <form action="log-in" method="POST" class='center width-sm stack-md'>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+     
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+      </div>
+      
       <button type='submit'>Log in</button>
     </form>
-    <a href='/'>Return Home</a>
+    <div class='center width-sm return'>
+    <a href='/'>↩  Return Home</a>
+    </div>
     `;
-  response.send(html);
+  response.send(layout('Log-in', html));
 }
 
 function post(request, response) {

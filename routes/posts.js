@@ -1,6 +1,7 @@
 'use strict';
 
 const model = require('../database/model');
+const layout = require('../layout');
 
 function get(request, response) {
   const sid = request.signedCookies.sid;
@@ -24,7 +25,7 @@ function get(request, response) {
         const html = /*html*/ `<ul>${postList}</ul><form action="/log-out" method="post"><button>logout</button></form>`;
         return html;
       })
-      .then((html) => response.send(html));
+      .then((html) => response.send(layout('Posts', html)));
   } else {
     response.redirect('/');
   }
