@@ -37,6 +37,29 @@ h1 {
   box-shadow: 0px 6px 5px rgba(38, 169, 193, 0.7);
 }
 
+h2 {
+  color: #26a9c1;
+  width: 60%;
+  padding: 1rem;
+  margin-top: 5rem;
+  text-align: center;
+
+  background: repeating-linear-gradient(
+    45deg,
+    #afedf1,
+    #afedf1 10px,
+    #f6f8f9 10px,
+    #f6f8f9 20px
+  );
+
+  font-size: 2.3rem;
+
+  border: 3px solid rgba(23, 21, 21, 0.8);
+  border-bottom: 5px solid rgba(23, 21, 21, 0.8);
+  border-radius: 10px;
+  box-shadow: 0px 6px 5px rgba(38, 169, 193, 0.7);
+}
+
 #signup,
 #login {
   font-size: 3rem;
@@ -68,6 +91,23 @@ input {
   border-bottom: 3px solid rgba(23, 21, 21, 0.8);
   border-radius: 6px;
   box-shadow: 0px 4px 4px rgba(247, 136, 18, 0.5);
+}
+
+/* ----------------------- return HOME ----------------------- */
+
+.return {
+  font-size: 1rem;
+  text-align: center;
+
+  padding: 0.5rem;
+  margin-top: 3rem;
+
+  border: 1px solid rgba(23, 21, 21, 0.8);
+  border-bottom: 3px solid rgba(23, 21, 21, 0.8);
+  border-radius: 10px;
+  box-shadow: 0px 3px 3px rgba(134, 38, 193, 0.7);
+
+  transition: all 0.3s;
 }
 
 /* ----------------------------------------------------------------- PRIMITIVES ------------------------------------------------------------- */

@@ -16,7 +16,7 @@ function get(request, response) {
         </section>
     </main>
 `;
-  response.send(layout('home', html));
+  response.send(layout('Home', html));
 }
 
 module.exports = { get };
