@@ -26,7 +26,7 @@ function post(request, response) {
     .then(auth.saveUserSession)
     .then((sid) => {
       response.cookie('sid', sid, auth.COOKIE_OPTIONS);
-      response.redirect('/');
+      response.redirect('/posts');
     })
     .catch(() => response.send(/*html*/ `<h1>User not found!</h1>`));
 }
